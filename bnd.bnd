@@ -1,0 +1,4 @@
+Bundle-Name: cpmx-front-mod-configurador-certificaciones
+Bundle-SymbolicName: com.cdc.afiliacion.certificaciones
+Bundle-Version: 1.0.0
+Export-Package: com.cdc.afiliacion.certificaciones.constants
