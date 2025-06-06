@@ -77,6 +77,7 @@
 </div-->
 
 <form id="registraClienteForm" action="${registroCliente}" method="post">
+    <input type="hidden" id="clientIdNuevo" name="clientId" />
 </form>
 
 <form id="editaCertificacionForm" action="${editaCertificacion}" method="post">

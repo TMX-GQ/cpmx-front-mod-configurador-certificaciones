@@ -24,6 +24,10 @@ public class RegistroClienteActionCommand extends BaseMVCActionCommand {
     protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse)
             throws Exception {
 
+        String clientId = actionRequest.getParameter("clientId");
+
+        actionRequest.setAttribute("clientId", clientId);
+
         actionResponse.getRenderParameters().setValue("jspPage", "/registroCliente.jsp");
     }
 }

@@ -30,6 +30,7 @@ $(document).ready(function() {
                     table.draw();
                 }
                 else {
+                    $("#clientIdNuevo").val(response.clienteId);
                     $("#registraClienteForm").submit();
                 }
             });

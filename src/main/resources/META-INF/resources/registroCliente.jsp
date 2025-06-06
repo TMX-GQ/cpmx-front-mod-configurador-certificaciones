@@ -2,66 +2,101 @@
 
 <portlet:resourceURL id="/afiliacion/certificaciones/manageDocuments" var="manageDocumentsURL" cacheability="FULL"/>
 <portlet:resourceURL id="/afiliacion/certificaciones/manageSections" var="manageSectionsURL" cacheability="FULL"/>
-
-<style>
-    tr.selected {
-        background-color: lightblue;
-    }
-</style>
+<portlet:resourceURL id="/afiliacion/certificaciones/creaCertificacion" var="creaCertificacionURL" cacheability="FULL"/>
 
 <section>
     <div class="row">
-        Regimen Fiscal
+        ${clientId}
     </div>
-    <div class="col-md-3">
-        <div class="form-inline" style="float: left !important;">
-            <div class="col-lg-6 col-md-6">
-                <div class="">
-                    <input class="" name="regimenFiscal" type="radio" id="regimenMoral" value="1">
-                    <label class="form-check-label" for="regimenMoral">
-                        Moral
-                    </label>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="row">
+                    Regimen Fiscal
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="">
-                    <input class="" name="regimenFiscal" type="radio" id="regimenFisica" value="2">
-                    <label class="form-check-label" for="regimenFisica">
-                        Fisica
-                    </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-inline" style="float: left !important;">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="">
+                                    <input class="" name="regimenFiscal" type="radio" id="regimenMoral" value="Moral">
+                                    <label class="form-check-label" for="regimenMoral">
+                                        Moral
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="">
+                                    <input class="" name="regimenFiscal" type="radio" id="regimenFisica" value="Fisico">
+                                    <label class="form-check-label" for="regimenFisica">
+                                        Fisica
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        Tipo de Pago
-    </div>
-    <div class="col-md-3">
-        <div class="form-inline" style="float: left !important;">
-            <div class="col-lg-6 col-md-6">
-                <div class="form-check">
-                    <input class="" name="regimenFiscal" type="radio" id="regimenMoral" value="1">
-                    <label class="form-check-label" for="regimenMoral">
-                        Cliente
-                    </label>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-check">
-                    <input class="" name="regimenFiscal" type="radio" id="regimenFisica" value="2">
-                    <label class="form-check-label" for="regimenFisica">
-                        Proveedor
-                    </label>
+        <div class="row">
+            Tipo de Pago
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-inline" style="float: left !important;">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="">
+                            <input class="" name="tipoPago" type="radio" id="pagoCliente" value="1">
+                            <label class="form-check-label" for="pagoCliente">
+                                Cliente
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="">
+                            <input class="" name="tipoPago" type="radio" id="pagoProveedor" value="2">
+                            <label class="form-check-label" for="pagoProveedor">
+                                Proveedor
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        Monto
+        <div class="col-md-6">
+            <div class="row">
+                Notificaciones
+            </div>
+            <div class="row">
+                <input id="diasNotificacion" />
+                <label class="form-check-label" for="diasNotificacion">
+                    D&iacute;as de notificacion
+                </label>
+            </div>
+        </div>
     </div>
-    <div class="containerDocumentos">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <input id="monto" />
+                <label class="form-check-label" for="monto">
+                    Monto
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-3">
+            <button id="guardarCertificacion" class="btn">Guardar</button>
+        </div>
+    </div>
+    <div class="containerDocumentos d-none">
         <div class="header">
-            <h1>Alta de documentos</h1>
+            Alta de documentos
         </div>
         <div class="labels">
             <span># Cliente</span>
@@ -96,11 +131,11 @@
                 </tbody>
             </table>
         </div>
-        <button class="save-button">Guardar</button>
+        <button class="save-button">Guardar documentos</button>
     </div>
-    <div class="containerSecciones">
+    <div class="containerSecciones d-none">
         <div class="header">
-            <h1>Alta de Secciones</h1>
+            Alta de Secciones
         </div>
         <div class="tables">
             <table id="seccionesDisponibles" class="table data-table table-striped table-bordered">
@@ -129,14 +164,15 @@
                 </tbody>
             </table>
         </div>
-        <button class="save-button">Guardar</button>
+        <button class="save-button">Guardar secciones</button>
     </div>
 </section>
 
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/creaCertificacion.js"></script>
 
 <script>
     const manageDocumentsURL = "${manageDocumentsURL}";
     const manageSectionsURL = "${manageSectionsURL}";
+    const creaCertificacionURL = "${creaCertificacionURL}";
+    const clientId = "${clientId}";
 </script>
