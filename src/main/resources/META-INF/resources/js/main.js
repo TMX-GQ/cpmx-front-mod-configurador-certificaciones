@@ -25,7 +25,7 @@ $(document).ready(function() {
                     response.nombreComercial,
                     '',
                     response.rfc,
-                    `<button class="edit-btn" data-client-id="${response.clienteId}">Edit</button>`
+                    `<button class="btn boton_afiliacion_secundario" data-client-id="${response.clienteId}">Edit</button>`
                     ]); // Add new row
                     table.draw();
                 }
@@ -42,7 +42,7 @@ $(document).ready(function() {
         $("#registraClienteForm").submit();
     });
 
-    $('#clientTable tbody').on('click', '.edit-btn', function() {
+    $('#clientTable tbody').on('click', '.boton_afiliacion_secundario', function() {
             var clientId = $(this).data('client-id');
             console.log(clientId);
             $("#clientId").val(clientId);

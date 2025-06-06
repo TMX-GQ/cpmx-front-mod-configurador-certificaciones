@@ -4,25 +4,27 @@
 <portlet:actionURL var="editaCertificacion" name="/afiliacion/certificaciones/editaCertificacion" />
 
 <portlet:resourceURL id="/afiliacion/certificaciones/getClient" var="getClientURL" cacheability="FULL"/>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"/>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+<div class="cpmx-front-mod-configurador-certificaciones">
 <section>
     <div class="row">
         <div class="col-md-3">
         </div>
         <div class="col-md-6">
-            <div class="row">
+            <div >
                 <div class="md-form form-group">
                     <input id="idCliente" type="text" name="idCliente" class="form-control">
                     <label for="idCliente" >ID Cliente</label>
                 </div>
             </div>
-            <div class="row">
+            <div >
                 <div class="md-form form-group">
                     <input id="nombreCliente" type="text" name="nombreCliente" class="form-control">
                     <label for="nombreCliente" >Nombre Cliente</label>
                 </div>
                 <div class="md-form form-group">
-                    <button id="btnBuscar" class="btn btn-pink float-right">
+                    <button id="btnBuscar" class="btn btn-pink float-right boton_afiliacion_primario">
                         Buscar
                     </button>
                 </div>
@@ -31,8 +33,8 @@
         <div class="col-md-3">
         </div>
     </div>
-    <div class="row">
-        <table id="clientTable" class="table data-table table-striped table-bordered">
+    <div>
+        <table id="clientTable" class="table data-table table-striped table-bordered tabla-verde">
             <thead>
                 <tr>
                     <th>ID Cliente</th>
@@ -43,6 +45,7 @@
                 </tr>
             </thead>
             <tbody>
+            </tbody>
             </tbody>
         </table>
     </div>
@@ -75,7 +78,7 @@
         </div>
     </div>
 </div-->
-
+</div>
 <form id="registraClienteForm" action="${registroCliente}" method="post">
     <input type="hidden" id="clientIdNuevo" name="clientId" />
 </form>

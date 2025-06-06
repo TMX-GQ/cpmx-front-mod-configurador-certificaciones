@@ -13,15 +13,15 @@
             Nombre Cliente:
         </div>
     </div>
-    <div class="row">
-        <table id="certificationsTable" class="table data-table table-striped table-bordered">
+    <div class="row mt-4">
+        <table id="certificationsTable" class="tabla-verde table data-table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>ID Certificación</th>
-                    <th>Régimen Fiscal</th>
+                    <th>ID Certificaci&oacute;n</th>
+                    <th>R&eacute;gimen Fiscal</th>
                     <th># de Documentos</th>
                     <th># de Secciones</th>
-                    <th>Días de Notificación</th>
+                    <th>D&iacute;as de Notificaci&oacute;n</th>
                     <th># de Proveedores</th>
                     <th>Detalles</th>
                 </tr>

@@ -1,0 +1,43 @@
+.cpmx-front-mod-configurador-certificaciones {
+    .boton_afiliacion_primario {
+        background-color: #019d01;
+        color: white;
+        max-height: 40px;
+    }
+
+    .boton_afiliacion_secundario {
+        border-color: #019d01;
+        color: #019d01;
+        max-height: 40px;
+    }
+    .tabla-verde {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .tabla-verde th,
+    .tabla-verde td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: left;
+    }
+
+    .tabla-verde thead th {
+        background-color: #e8f5e9;
+    }
+
+    .tabla-verde tbody tr:nth-child(odd) {
+        background-color: #c8e6c9;
+    }
+
+    .tabla-verde tbody tr:nth-child(even) {
+        background-color: #f1f8f2;
+    }
+
+    .tabla-verde tbody tr:hover {
+        background-color: #81c784;
+        cursor: pointer;
+    }
+}

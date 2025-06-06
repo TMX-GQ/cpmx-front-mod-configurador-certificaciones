@@ -6,7 +6,7 @@ $(document).ready(function() {
     var tableCertificacion = $('#documentosCertificacion').DataTable();
 
     var tableSecciones = $('#seccionesDisponibles').DataTable();
-        var tableSeccionesCert = $('#seccionesCertificacion').DataTable();
+    var tableSeccionesCert = $('#seccionesCertificacion').DataTable();
 
     $.post(getCertificacionesURL, {
         clientId: clientID
@@ -25,7 +25,7 @@ $(document).ready(function() {
                     item.numeroSecciones,
                     item.numNotifDays,
                     '',
-                    `<button class="edit-btn" data-client-id="${item.cveCertification}">Ver</button>`
+                    `<button class="btn boton_afiliacion_secundario" data-client-id="${item.clienteId}">Ver</button>`
                 ]);
              });
 
