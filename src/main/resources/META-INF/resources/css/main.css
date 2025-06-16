@@ -1,43 +1,43 @@
 .cpmx-front-mod-configurador-certificaciones {
     .boton_afiliacion_primario {
-        background-color: #019d01;
-        color: white;
-        max-height: 40px;
+        background-color: #019d01 !important;
+        color: white !important;
+        max-height: 40px !important;
     }
 
     .boton_afiliacion_secundario {
-        border-color: #019d01;
-        color: #019d01;
-        max-height: 40px;
+        border-color: #019d01 !important;
+        color: #019d01 !important;
+        max-height: 40px !important;
     }
     .tabla-verde {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px auto;
-        font-family: Arial, sans-serif;
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin: 20px auto !important;
+        font-family: Arial, sans-serif !important;
     }
 
     .tabla-verde th,
     .tabla-verde td {
-        border: 1px solid #ccc;
-        padding: 12px;
-        text-align: left;
+        border: 1px solid #ccc !important;
+        padding: 12px !important;
+        text-align: left !important;
     }
 
     .tabla-verde thead th {
-        background-color: #e8f5e9;
+        background-color: #e8f5e9 !important;
     }
 
     .tabla-verde tbody tr:nth-child(odd) {
-        background-color: #c8e6c9;
+        background-color: #c8e6c9 !important;
     }
 
     .tabla-verde tbody tr:nth-child(even) {
-        background-color: #f1f8f2;
+        background-color: #f1f8f2 !important;
     }
 
     .tabla-verde tbody tr:hover {
-        background-color: #81c784;
-        cursor: pointer;
+        background-color: #81c784 !important;
+        cursor: pointer !important;
     }
 }

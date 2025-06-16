@@ -4,8 +4,10 @@
 <portlet:actionURL var="editaCertificacion" name="/afiliacion/certificaciones/editaCertificacion" />
 
 <portlet:resourceURL id="/afiliacion/certificaciones/getClient" var="getClientURL" cacheability="FULL"/>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"/>
+
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <div class="cpmx-front-mod-configurador-certificaciones">
 <section>
     <div class="row">

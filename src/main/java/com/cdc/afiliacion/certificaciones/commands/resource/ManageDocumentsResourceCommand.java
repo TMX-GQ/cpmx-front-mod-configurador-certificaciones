@@ -47,6 +47,8 @@ public class ManageDocumentsResourceCommand extends BaseMVCResourceCommand {
         request.setNumeroCertificacion(numeroCertificacion);
         request.setDocumentoId(documentoId);
 
+        LOGGER.info("Enviando DocumentRequest: " + gson.toJson(request));
+
         DocumentResponse listadoDocumentos = service.manageDocuments(request);
 
         String jsonResponse = gson.toJson(listadoDocumentos);

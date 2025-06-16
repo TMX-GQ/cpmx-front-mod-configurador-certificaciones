@@ -1,8 +1,19 @@
 <%@ include file="./init.jsp" %>
 
+<portlet:actionURL var="registroCliente" name="/afiliacion/certificaciones/registroCliente" />
+
 <portlet:resourceURL id="/afiliacion/certificaciones/getCertificaciones" var="getCertificacionesURL" cacheability="FULL"/>
 <portlet:resourceURL id="/afiliacion/certificaciones/manageDocuments" var="manageDocumentsURL" cacheability="FULL"/>
 <portlet:resourceURL id="/afiliacion/certificaciones/manageSections" var="manageSectionsURL" cacheability="FULL"/>
+
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<style>
+    .boton_afiliacion_primario {
+        background-color: #019d01 !important;
+        color: white !important;
+        max-height: 40px !important;
+    }
+</style>
 
 <section>
     <div class="row">
@@ -28,6 +39,13 @@
             </thead>
             <tbody></tbody>
         </table>
+    </div>
+    <div class="row">
+        <div class="md-form form-group">
+            <button id="btnNueva" class="btn btn-pink float-right boton_afiliacion_primario">
+                Nueva Certificacion
+            </button>
+        </div>
     </div>
 </section>
 
@@ -59,12 +77,6 @@
                                 <div class="header">
                                     Alta de documentos
                                 </div>
-                                <div class="labels">
-                                    <span># Cliente</span>
-                                    <span>Nombre comercial</span>
-                                    <span>Num Cert</span>
-                                    <span>Régimen fiscal</span>
-                                </div>
                                 <div class="tables">
                                     <table id="documentosDisponibles" class="table data-table table-striped table-bordered">
                                         <thead>
@@ -79,7 +91,7 @@
                                     </table>
                                     <div class="buttons">
                                         <button id="agregaDocumento">Agregar</button>
-                                        <button>Eliminar</button>
+                                        <button id="eliminaDocumento">Eliminar</button>
                                     </div>
                                     <table id="documentosCertificacion" class="table data-table table-striped table-bordered">
                                         <thead>
@@ -92,7 +104,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <button class="save-button">Guardar documentos</button>
+                                <button class="save-button" id="sendDocuments">Guardar documentos</button>
                             </div>
                          </div>
                     </div>
@@ -115,7 +127,7 @@
                                 </table>
                                 <div class="buttons">
                                     <button id="agregaSeccion">Agregar</button>
-                                    <button>Eliminar</button>
+                                    <button id="eliminaSeccion">Eliminar</button>
                                 </div>
                                 <table id="seccionesCertificacion" class="table data-table table-striped table-bordered">
                                     <thead>
@@ -128,7 +140,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <button class="save-button">Guardar secciones</button>
+                            <button class="save-button" id="sendSecciones">Guardar secciones</button>
                         </div>
                     </div>
                  </div>
@@ -145,6 +157,10 @@
      </div>
  </div>
 
+ <form id="registraClienteForm" action="${registroCliente}" method="post">
+     <input type="hidden" id="clientIdNuevo" name="clientId" value="${clientId}"/>
+ </form>
+
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/editaCertificacion.js"></script>
 
@@ -153,4 +169,17 @@
     const getCertificacionesURL = "${getCertificacionesURL}";
     const manageDocumentsURL = "${manageDocumentsURL}";
     const manageSectionsURL = "${manageSectionsURL}";
+    var documentosActuales;
+    var seccionesActuales;
+
+    var certificacion;
+    var datosCertificaciones;
 </script>
+
+<style>
+    tr.selected {
+        background-color: #d4edda !important;
+        color: #155724;
+        font-weight: bold;
+    }
+</style>

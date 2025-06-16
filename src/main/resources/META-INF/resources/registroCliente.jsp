@@ -1,8 +1,8 @@
-<%@ include file="./init.jsp" %>
 
-<portlet:resourceURL id="/afiliacion/certificaciones/manageDocuments" var="manageDocumentsURL" cacheability="FULL"/>
+<%@ include file="./init.jsp" %>
 <portlet:resourceURL id="/afiliacion/certificaciones/manageSections" var="manageSectionsURL" cacheability="FULL"/>
 <portlet:resourceURL id="/afiliacion/certificaciones/creaCertificacion" var="creaCertificacionURL" cacheability="FULL"/>
+<portlet:resourceURL id="/afiliacion/certificaciones/manageDocuments" var="manageDocumentsURL" cacheability="FULL"/>
 
 <style>
     .registro_cliente {
@@ -87,8 +87,10 @@
 
 <div class="registro_cliente">
     <section class="form-section">
+        <div class="mx-2 row mb-4">
+            Client Id: ${clientId}
+        </div>
         <div class="row">
-            ${clientId}
             <!-- Notificaciones -->
             <div class="col-md-3">
                 <label>Notificaciones</label>
@@ -101,11 +103,11 @@
                 <label>Regimen Fiscal</label>
                 <div class="form-inline">
                     <div class="form-check col-6">
-                        <input class="form-check-input" name="regimenFiscal" type="radio" id="regimenMoral" value="1">
+                        <input class="form-check-input" name="regimenFiscal" type="radio" id="regimenMoral" value="Moral">
                         <label class="form-check-label" for="regimenMoral">Moral</label>
                     </div>
                     <div class="form-check col-6">
-                        <input class="form-check-input" name="regimenFiscal" type="radio" id="regimenFisica" value="2">
+                        <input class="form-check-input" name="regimenFiscal" type="radio" id="regimenFisica" value="Fisica">
                         <label class="form-check-label" for="regimenFisica">Fisica</label>
                     </div>
                 </div>
@@ -133,77 +135,8 @@
             </div>
         </div>
     </section>
-
-    <!-- Sección de Documentos -->
-    <div class="containerDocumentos">
-        <div class="header">
-            <h1>Alta de documentos</h1>
-        </div>
-        <div class="labels">
-            <span># Cliente</span>
-            <span>Nombre comercial</span>
-            <span>Num Cert</span>
-            <span>R&eacute;gimen fiscal</span>
-        </div>
-        <div class="tables">
-            <table id="documentosDisponibles" class="table data-table table-striped table-bordered table-green">
-                <thead>
-                <tr>
-                    <th># documento</th>
-                    <th>Nombre documento</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <div class="buttons">
-                <button id="agregaDocumento">Agregar</button>
-                <button>Eliminar</button>
-            </div>
-            <table id="documentosCertificacion" class="table data-table table-striped table-bordered table-green">
-                <thead>
-                <tr>
-                    <th># documento</th>
-                    <th>Nombre documento</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <button class="save-button">Guardar documentos</button>
-    </div>
-
-    <!-- Sección de Secciones -->
-    <div class="containerSecciones">
-        <div class="header">
-            <h1>Alta de Secciones</h1>
-        </div>
-        <div class="tables">
-            <table id="seccionesDisponibles" class="table data-table table-striped table-bordered table-green">
-                <thead>
-                <tr>
-                    <th># secci&oacute;n</th>
-                    <th>Nombre secci&oacute;n</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- Current documents will be listed here -->
-                </tbody>
-            </table>
-            <div class="buttons">
-                <button id="agregaSeccion">Agregar</button>
-                <button>Eliminar</button>
-            </div>
-            <table id="seccionesCertificacion" class="table data-table table-striped table-bordered table-green">
-                <thead>
-                <tr>
-                    <th># secci&oacute;n</th>
-                    <th>Nombre secci&oacute;n</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <button class="save-button">Guardar</button>
+    <div class="col-md-3">
+        <button id="guardarCertificacion" class="save-button">Guardar</button>
     </div>
 </div>
 
@@ -211,7 +144,6 @@
 <script src="<%=request.getContextPath()%>/js/creaCertificacion.js"></script>
 
 <script>
-    const manageDocumentsURL = "${manageDocumentsURL}";
     const manageSectionsURL = "${manageSectionsURL}";
     const creaCertificacionURL = "${creaCertificacionURL}";
     const clientId = "${clientId}";
